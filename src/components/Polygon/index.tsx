@@ -2,7 +2,7 @@ import React from "react";
 import { Polygon, PolygonProps } from "@react-google-maps/api";
 import geojson from "../../data/geo.json";
 
-interface PolygonsProps {
+export interface PolygonsProps {
   polygonOptions?: PolygonProps["options"];
   polygonCoords: google.maps.LatLngLiteral[];
 }

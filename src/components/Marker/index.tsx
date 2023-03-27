@@ -1,8 +1,7 @@
 import { Marker } from "@react-google-maps/api";
 import { useCallback } from "react";
-import marker from "../../../public/assets/icons/marker.svg";
 
-interface MarkerProps {
+export interface MarkerProps {
   index: number;
   position: google.maps.LatLngLiteral;
   draggable?: boolean;

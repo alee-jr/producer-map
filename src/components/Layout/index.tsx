@@ -1,6 +1,6 @@
 import * as S from "./styles";
 
-interface LayoutProps {
+export interface LayoutProps {
   title: string;
   children: React.ReactNode;
 }

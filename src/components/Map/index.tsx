@@ -1,7 +1,7 @@
 import React from "react";
 import { GoogleMap, LoadScript, GoogleMapProps } from "@react-google-maps/api";
 
-interface MapProps {
+export interface MapProps {
   mapContainerStyle?: React.CSSProperties;
   center: google.maps.LatLngLiteral;
   zoom?: number;
