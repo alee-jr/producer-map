@@ -129,6 +129,7 @@ export default function MapPage() {
             key={`${point.lat}-${point.lng}`}
             position={point}
             marker={point}
+            selected={id => setSelectPinId(id)}
             draggable
             onDragEnd={(_idx, event) => onMarkerDragEnd(point.id, event)}
             index={index}

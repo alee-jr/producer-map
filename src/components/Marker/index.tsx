@@ -6,6 +6,7 @@ export interface MarkerProps {
   index: number;
   position: google.maps.LatLngLiteral;
   marker: Point;
+  selected: (id: string) => void;
   draggable?: boolean;
   onDragEnd: (index: number, event: google.maps.MapMouseEvent) => void;
 }
@@ -15,10 +16,11 @@ const MarkerComponent: React.FC<MarkerProps> = ({
   position,
   draggable = false,
   marker,
+  selected,
   onDragEnd,
   ...props
 }) => {
-  const [selectedMarker, setSelectedMarker] = useState<Point | null>(null);
+  const [selectedMarker, setSelectedMarker] = useState<string | null>(null);
 
   const handleDragEnd = useCallback(
     (event: google.maps.MapMouseEvent) => {
@@ -38,10 +40,12 @@ const MarkerComponent: React.FC<MarkerProps> = ({
   }
 
   const handleMarkerClick = (marker: Point) => {
-    if (selectedMarker === marker) {
+    if (selectedMarker === marker.id) {
       setSelectedMarker(null);
+      selected("");
     } else {
-      setSelectedMarker(marker);
+      selected(marker.id);
+      setSelectedMarker(marker.id);
     }
   };
 
@@ -51,7 +55,7 @@ const MarkerComponent: React.FC<MarkerProps> = ({
       draggable={draggable}
       onDragEnd={handleDragEnd}
       onClick={() => handleMarkerClick(marker)}
-      icon={marker.id === selectedMarker?.id ? selectedIcon : defaultIcon}
+      icon={marker.id === selectedMarker ? selectedIcon : defaultIcon}
       {...props}
     />
   );
