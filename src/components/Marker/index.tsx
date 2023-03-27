@@ -1,5 +1,6 @@
 import { Marker } from "@react-google-maps/api";
 import { useCallback } from "react";
+import marker from "../../../public/assets/icons/marker.svg";
 
 interface MarkerProps {
   index: number;
