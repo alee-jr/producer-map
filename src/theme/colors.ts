@@ -3,5 +3,5 @@ export const colors = {
   primary: '#FFFFFF',
   secondary: '#20252B',
   tertiary: '#F5F6FA',
-  attention: '#D20200',
+  danger: '#D20200',
 };
