@@ -26,10 +26,12 @@ const MarkerComponent: React.FC<MarkerProps> = ({
 
   return (
     <Marker
-      data-testid="marker"
       position={position}
       draggable={draggable}
       onDragEnd={handleDragEnd}
+      icon={{
+        url: "assets/icons/marker.svg"
+      }}
       {...props}
     />
   );

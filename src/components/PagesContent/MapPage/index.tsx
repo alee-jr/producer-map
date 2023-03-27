@@ -33,9 +33,9 @@ export default function MapPage() {
   };
 
   const onMarkerDragEnd = useCallback(
-    (index: number, event: google.maps.MapMouseEvent) => {
+    (id: string, event: google.maps.MapMouseEvent) => {
       const newPoints = [...points];
-      newPoints[index] = {
+      newPoints[points.findIndex(item => item.id === id)] = {
         id: uuidv4(),
         lat: event.latLng!.lat(),
         lng: event.latLng!.lng(),
@@ -129,7 +129,7 @@ export default function MapPage() {
             key={`${point.lat}-${point.lng}`}
             position={point}
             draggable
-            onDragEnd={(_idx, event) => onMarkerDragEnd(index, event)}
+            onDragEnd={(_idx, event) => onMarkerDragEnd(point.id, event)}
             index={index}
           />
         ))}
