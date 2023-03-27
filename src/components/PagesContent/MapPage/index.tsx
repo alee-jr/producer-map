@@ -128,6 +128,7 @@ export default function MapPage() {
           <MarkerComponent
             key={`${point.lat}-${point.lng}`}
             position={point}
+            marker={point}
             draggable
             onDragEnd={(_idx, event) => onMarkerDragEnd(point.id, event)}
             index={index}
