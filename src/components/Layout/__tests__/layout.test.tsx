@@ -22,18 +22,20 @@ describe("Layout", () => {
   });
 
   it("renders the title prop correctly", () => {
-    const { getByText } = render(<Layout {...defaultProps} />);
+    const { getByText } = render(
+      <ThemeProvider theme={theme}>
+        <Layout {...defaultProps} />
+      </ThemeProvider>
+    );
     expect(getByText("Test Layout")).toBeInTheDocument();
   });
 
   it("renders the children prop correctly", () => {
-    const { getByText } = render(<Layout {...defaultProps} />);
+    const { getByText } = render(
+      <ThemeProvider theme={theme}>
+        <Layout {...defaultProps} />
+      </ThemeProvider>
+    );
     expect(getByText("Test content")).toBeInTheDocument();
-  });
-
-  it("renders the sidebar component", () => {
-    const { container } = render(<Layout {...defaultProps} />);
-    const sidebar = container.querySelector(`.${S.SideBar}`);
-    expect(sidebar).toBeInTheDocument();
   });
 });

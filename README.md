@@ -28,7 +28,7 @@ A NextJS frontend that includes a point management map.
 2. Update the .env files
 
    ```bash
-   .env.example .env
+   .env.example to .env.local
    ```
 
 3. Start the project

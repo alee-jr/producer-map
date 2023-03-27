@@ -21,17 +21,27 @@ describe("ButtonComponent", () => {
   });
 
   it("fires onClick event when clicked", () => {
-    const { getByText } = render(<ButtonComponent {...defaultProps} />);
+    const { getByText } = render(
+      <ThemeProvider theme={theme}>
+        <ButtonComponent {...defaultProps} />
+      </ThemeProvider>
+    );
     fireEvent.click(getByText("Click me"));
     expect(defaultProps.onClick).toHaveBeenCalledTimes(1);
   });
 
   it("changes variant when prop is changed", () => {
     const { getByText, rerender } = render(
-      <ButtonComponent {...defaultProps} variant="danger" />
+      <ThemeProvider theme={theme}>
+        <ButtonComponent {...defaultProps} variant="danger" />
+      </ThemeProvider>
     );
-    expect(getByText("Click me")).toHaveStyle("background-color: red");
-    rerender(<ButtonComponent {...defaultProps} variant="primary" />);
-    expect(getByText("Click me")).toHaveStyle("background-color: blue");
+    expect(getByText("Click me")).toHaveStyle("background-color: rgb(210, 2, 0)");
+    rerender(
+      <ThemeProvider theme={theme}>
+        <ButtonComponent {...defaultProps} variant="primary" />
+      </ThemeProvider>
+    );
+    expect(getByText("Click me")).toHaveStyle("background-color: rgb(255, 255, 255)");
   });
 });
